@@ -44,16 +44,8 @@
 						<img src="<?php echo $linen->logoName(); ?>" alt="<?php if ($linen->logoAlt() !== '' ) echo $linen->logoAlt(); else echo bloginfo( 'name' ); ?>" /><span class="blogname">Natalie's blog</span>
 					</a>
 				</div>
-				<?php if ($linen->logoTagline() == 'true' ) : ?>
-					<div id="description">
-						<h2><?php bloginfo( 'description' ); ?></h2>
-					</div><!--end description-->
-				<?php endif; ?>
 			<?php else : ?>
 				<?php if (is_home()) echo( '<h1 id="title">' ); else echo( '<div id="title">' );?><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a><?php if (is_home()) echo( '</h1>' ); else echo( '</div>' );?>
-					<div id="description">
-						<h2><?php bloginfo( 'description' ); ?></h2>
-					</div><!--end description-->
 			<?php endif; ?>
 			<?php
 				wp_nav_menu(
@@ -79,10 +71,8 @@
 			<div id="slides">
 				<div class="slides_container">
 					<div id="slide-1" class="slide show-slide">
-						<!--<img scale="0" src="/wp-content/themes/linen_pro/images/ursula-banner.jpg" height="353" width="652">-->
 						<div class="slide-content">
-							<!--<h2>Get to know a bit more about me, what I'm up to and what makes me tick...</h2>-->
-							<p>My blog about HMCTS... please share your views.</p>
+							<p><?php bloginfo('description'); ?></p>
 						</div>
 					</div>
 				</div>
