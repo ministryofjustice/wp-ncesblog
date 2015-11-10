@@ -6,11 +6,11 @@
 		<?php /* If this is a tag archive */ } elseif ( is_tag() ) { ?>
 			<h1 class="pagetitle"><?php printf(__( 'Posts tagged &#8216;%s&#8217;', 'linen' ), single_tag_title('', false)); ?></h1>
 		<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
-			<h1 class="pagetitle"><?php printf( __( 'Archive for %s', 'linen' ), get_the_time(  'F jS, Y', 'linen' ) ); ?></h1>
+			<h1 class="pagetitle"><?php printf( __( 'Archive for %s', 'linen' ), get_the_time(  'j F, Y' ) ); ?></h1>
 		<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-			<h1 class="pagetitle"><?php printf( __( 'Archive for %s', 'linen' ), get_the_time(  'F, Y', 'linen' ) ); ?></h1>
+			<h1 class="pagetitle"><?php printf( __( 'Archive for %s', 'linen' ), get_the_time(  'F, Y' ) ); ?></h1>
 		<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
-			<h1 class="pagetitle"><?php printf( __( 'Archive for %s', 'linen' ), get_the_time(  'Y', 'linen' ) ); ?></h1>
+			<h1 class="pagetitle"><?php printf( __( 'Archive for %s', 'linen' ), get_the_time(  'Y' ) ); ?></h1>
 		<?php /* If this is an author archive */ } elseif (is_author()) { ?>
 			<h1 class="pagetitle"><?php printf(__( 'Posts by %s', 'linen' ), get_the_author() ); ?></h1>
 		<?php /* If this is a paged archive */ } elseif ( is_paged() ) { ?>
