@@ -41,7 +41,7 @@
 				<?php $upload_dir = wp_upload_dir(); ?>
 				<div id="title">
 					<a href="<?php echo home_url( '/' ); ?>">
-						<img src="<?php echo $linen->logoName(); ?>" alt="<?php if ($linen->logoAlt() !== '' ) echo $linen->logoAlt(); else echo bloginfo( 'name' ); ?>" /><span class="blogname">Natalie's blog</span>
+						<img src="<?php echo $linen->logoName(); ?>" alt="<?php if ($linen->logoAlt() !== '' ) echo $linen->logoAlt(); else echo bloginfo( 'name' ); ?>" /><span class="blogname"><?php bloginfo( 'name' ); ?></span>
 					</a>
 				</div>
 			<?php else : ?>
@@ -67,17 +67,7 @@
 		<?php endif; ?>
 		
 	<div id="featured" class="clear">
-		<div class="container">
-			<div id="slides">
-				<div class="slides_container">
-					<div id="slide-1" class="slide show-slide">
-						<div class="slide-content">
-							<p><?php bloginfo('description'); ?></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<div class="blog-description"><?php bloginfo('description'); ?></div>
 	</div>
 		
 		<div id="content" <?php if ( ( is_page_template( 'tm-no-sidebar.php' ) ) || ( $linen->sidebarDisable() == 'true' ) ) echo ( 'class="no-sidebar"' ); ?>>
