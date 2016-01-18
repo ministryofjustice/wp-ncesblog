@@ -17,11 +17,13 @@
 	line-height: 1.4em;
 	word-spacing:.175em;
 	margin: 0 0 0 10px;
+	overflow: hidden;
 }
 
 #header #title a {
   border-left: 4px solid #0096d7;
   padding-left: 20px;
+  float: left;
 }
 
 #header #title img {
