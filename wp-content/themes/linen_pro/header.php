@@ -39,9 +39,9 @@
 		<div id="header" class="clear">
 			<div id="title">
 				<a href="<?php echo home_url( '/' ); ?>">
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/hmcts-logo.png" alt="HM Courts &amp; Tribunals Service" />
 					<span class="blogname"><?php bloginfo( 'name' ); ?></span>
 				</a>
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/hmcts-logo.png" alt="HM Courts &amp; Tribunals Service" />
 			</div>
 			<?php
 				wp_nav_menu(

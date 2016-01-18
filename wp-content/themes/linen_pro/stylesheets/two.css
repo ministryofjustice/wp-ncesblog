@@ -20,17 +20,15 @@
 	overflow: hidden;
 }
 
-#header #title a {
+#header #title a span {
   border-left: 4px solid #0096d7;
   padding-left: 20px;
-  float: left;
 }
 
 #header #title img {
-  float: right;
-  margin-right: 30px;
-  height: 30px;
-  margin-top: 13px;
+  margin-right: 10px;
+  vertical-align: middle;
+  margin-top: -7px;
 }
 
 #wrapper a:hover,#wrapper a:focus,#footer a:hover,#footer a:focus,#copyright a:hover,#copyright a:focus {
