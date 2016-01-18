@@ -5,7 +5,7 @@
 			<div id="footer-1" class="footer-column">
 				<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer_1') ) : ?>
 					<!-- <h2 class="widgettitle"><?php _e( 'About Us' , 'linen' ); ?></h2> -->
-					
+
 				<?php endif; ?>
 			</div>
 			<div id="footer-2" class="footer-column">
@@ -26,7 +26,7 @@
 			</div>
 			<div id="footer-4" class="footer-column">
 				<?php if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'footer_4' ) ) : ?>
-					<!-- <h2 class="widgettitle"><?php _e( 'Search', 'linen' ); ?></h2> 
+					<!-- <h2 class="widgettitle"><?php _e( 'Search', 'linen' ); ?></h2>
 					<?php get_search_form(); ?>-->
 				<?php endif; ?>
 			</div>
@@ -44,9 +44,9 @@
 		</p>
 		<p>
 			<?php printf(
-				__( 'Ministry of Justice Copyright &copy; %1$s %2$s. All rights reserved.', 'linen' ),
+				__( 'Copyright &copy; %1$s %2$s. All rights reserved.', 'linen' ),
 				date( 'Y' ),
-				$linen->copyrightName()
+				'Ministry of Justice'
 			); ?>
 		</p>
 	</div><!--end copyright-->

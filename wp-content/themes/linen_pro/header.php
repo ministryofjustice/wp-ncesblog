@@ -14,7 +14,7 @@
 
 	<!-- Basic Meta Data -->
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="copyright" content="<?php 
+	<meta name="copyright" content="<?php
 		echo esc_attr( sprintf(
 			__( 'Design is copyright %1$s The Theme Foundry', 'linen' ),
 			date( 'Y' )
@@ -27,26 +27,22 @@
 	<!-- WordPress -->
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<?php wp_head(); ?>
-    
+
     <link rel="stylesheet" type="text/css" href="<?php echo home_url(); ?>/wp-content/themes/linen_pro/stylesheets/one.css">
     <link rel="stylesheet" type="text/css" href="<?php echo home_url(); ?>/wp-content/themes/linen_pro/stylesheets/two.css">
 	<link href='http://fonts.googleapis.com/css?family=Cabin:400,700' rel='stylesheet' type='text/css'>
-	
+
 </head>
 <body <?php body_class(); ?>>
 	<div class="skip-content"><a href="#content"><?php _e( 'Skip to content', 'linen' ); ?></a></div>
 	<div id="wrapper" class="clear">
 		<div id="header" class="clear">
-			<?php if ($linen->logoState() == 'true' ) : ?>
-				<?php $upload_dir = wp_upload_dir(); ?>
-				<div id="title">
-					<a href="<?php echo home_url( '/' ); ?>">
-						<img src="<?php echo $linen->logoName(); ?>" alt="<?php if ($linen->logoAlt() !== '' ) echo $linen->logoAlt(); else echo bloginfo( 'name' ); ?>" /><span class="blogname"><?php bloginfo( 'name' ); ?></span>
-					</a>
-				</div>
-			<?php else : ?>
-				<?php if (is_home()) echo( '<h1 id="title">' ); else echo( '<div id="title">' );?><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a><?php if (is_home()) echo( '</h1>' ); else echo( '</div>' );?>
-			<?php endif; ?>
+			<div id="title">
+				<a href="<?php echo home_url( '/' ); ?>">
+					<span class="blogname"><?php bloginfo( 'name' ); ?></span>
+				</a>
+				<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/hmcts-logo.png" alt="HM Courts &amp; Tribunals Service" />
+			</div>
 			<?php
 				wp_nav_menu(
 					array(
@@ -65,9 +61,9 @@
 		<?php if (is_page_template( 'tm-left-sidebar.php' )) : ?>
 			<?php get_sidebar(); ?>
 		<?php endif; ?>
-		
+
 	<div id="featured" class="clear">
 		<div class="blog-description"><?php bloginfo('description'); ?></div>
 	</div>
-		
+
 		<div id="content" <?php if ( ( is_page_template( 'tm-no-sidebar.php' ) ) || ( $linen->sidebarDisable() == 'true' ) ) echo ( 'class="no-sidebar"' ); ?>>

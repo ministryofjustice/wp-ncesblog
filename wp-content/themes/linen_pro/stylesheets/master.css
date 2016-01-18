@@ -59,7 +59,7 @@ a:hover {color: #434c6d;}
 #wrapper,
 #footer {width: 960px;	margin: 30px auto;	padding: 0 0 30px 0;	text-align: left;	background: #fff;	-moz-box-shadow: 0 2px 6px rgba( 100, 100, 100, .3);	-webkit-box-shadow: 0 2px 6px rgba( 100, 100, 100, .3);	box-shadow: 0 2px 6px rgba( 100, 100, 100, .3);	/*background: #fff url(../images/grid.png) repeat-y 0 0;*/
 }
-#content {float: left;	width: 620px;	margin-left: 30px;}
+#content {float: left;	width: 620px;	margin-left: 30px; padding-bottom: 15px;}
 #sidebar {float: right;	width: 300px;	margin-right: 20px;}
 #footer {width: 900px;	padding: 30px;}
 .clear:after,
@@ -267,7 +267,7 @@ body.page-template-tm-archives-php .entry h2 {font-size: 1.2em;	padding: 30px 0 
 .entries li {margin: 15px 0;}
 .entries a {font-size: 1.2em;}
 .entries a:hover {text-decoration: underline;}
-.entries li span {display: block;	float: left;	width: 165px;	font-family: Helvetica, Arial, sans-serif;	font-size: 1.1em;	color: #555;}
+.entries li span {display: block;	float: left;	width: 175px;	font-family: Helvetica, Arial, sans-serif;	font-size: 1em;	color: #555;}
 
 /*---------------------------------------------------------
 	8. Sidebar
