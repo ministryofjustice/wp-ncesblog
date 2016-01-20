@@ -1,4 +1,5 @@
 <?php global $linen; ?>
+	<div style="clear:both"></div><!-- clear div required here to fix an IE7 rendering bug #thanksIE -->
 </div><!--end wrapper-->
 	<?php if ( $linen->footerDisable() != 'true' ) { ?>
 		<div id="footer" class="clear">
