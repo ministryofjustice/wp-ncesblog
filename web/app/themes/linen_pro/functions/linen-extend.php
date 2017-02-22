@@ -43,7 +43,7 @@ if (!class_exists( 'Linen' )) {
 		/*---------------------------------------------------------
 			2. Set up theme specific variables
 		------------------------------------------------------------ */
-		function Linen () {
+		public function __construct() {
 
 			$this->themename = "Linen";
 			$this->themeurl = "http://thethemefoundry.com/linen/";
@@ -58,31 +58,22 @@ if (!class_exists( 'Linen' )) {
 
 			add_filter( 'pre_get_posts', array( &$this, 'filter_front_page_posts' ), 10 );
 
-			$this->addCustomBackground();
-
-			parent::TTFCore();
+			parent::__construct();
 		}
 
 		/*---------------------------------------------------------
 			3. Define image sizes
 		------------------------------------------------------------ */
-		function addImageSize() {
+		public function addImageSize() {
 			add_image_size( 'featured', 652, 300, true );
 			add_image_size( 'index-thumb', 94, 94, true );
 			add_image_size( 'single', 620, 9999 );
 		}
 
 		/*---------------------------------------------------------
-			4. Add custom background
-		------------------------------------------------------------ */
-		function addCustomBackground() {
-			add_custom_background();
-		}
-
-		/*---------------------------------------------------------
 			5. Add option to limit the content
 		------------------------------------------------------------ */
-		function custom_excerpt() {
+		public function custom_excerpt() {
 			global $post;
 			$content = '';
 
@@ -95,7 +86,7 @@ if (!class_exists( 'Linen' )) {
 			return $content;
 		}
 
-		function custom_content($limit) {
+		public function custom_content($limit) {
 			$link = get_permalink();
 			$read_more_link = '<a class="more-link" href="'. $link .'">' . __( 'Read more', 'linen' ) . '</a>';
 
@@ -120,7 +111,7 @@ if (!class_exists( 'Linen' )) {
 			6. Get front page posts
 		------------------------------------------------------------ */
 
-		function filter_front_page_posts( $query ) {
+		public function filter_front_page_posts( $query ) {
 			global $wp_query;
 
 			$apply_filter =
@@ -141,7 +132,7 @@ if (!class_exists( 'Linen' )) {
 		/*---------------------------------------------------------
 			7. Enqueue Client Files
 		------------------------------------------------------------ */
-		function enqueueClientFiles() {
+		public function enqueueClientFiles() {
 			global $wp_styles;
 
 			if ( ! is_admin() ) {
@@ -196,7 +187,7 @@ if (!class_exists( 'Linen' )) {
 		/*---------------------------------------------------------
 			8. Print Header Items
 		------------------------------------------------------------ */
-		function printHeaderItems() {
+		public function printHeaderItems() {
 			global $wp_query;
 			/*---------------------------------------------------------
 				I. Slider
@@ -270,7 +261,7 @@ if (!class_exists( 'Linen' )) {
 		/*---------------------------------------------------------
 			9. Register Sidebars
 		------------------------------------------------------------ */
-		function registerSidebars() {
+		public function registerSidebars() {
 
 			register_sidebar( array(
 				'name'=> __( 'Sidebar', 'linen' ),
@@ -318,7 +309,7 @@ if (!class_exists( 'Linen' )) {
 		/*---------------------------------------------------------
 			10. Main Menu Fallback
 		------------------------------------------------------------ */
-		function main_menu_fallback() {
+		public function main_menu_fallback() {
 			?>
 			<div id="navigation" class="clear">
 				<ul class="nav">
@@ -333,14 +324,14 @@ if (!class_exists( 'Linen' )) {
 		/*---------------------------------------------------------
 			11. Navigation Functions
 		------------------------------------------------------------ */
-		function registerMenus() {
+		public function registerMenus() {
 			register_nav_menu( 'nav-1', __( 'Top Navigation' ) );
 		}
 
 		/*---------------------------------------------------------
 			12. Get sticky posts count
 		------------------------------------------------------------ */
-		function get_sticky_posts_count() {
+		public function get_sticky_posts_count() {
 			global $wpdb;
 			$sticky_posts = array_map( 'absint', (array) get_option('sticky_posts') );
 			return count($sticky_posts) > 0 ? $wpdb->get_var( $wpdb->prepare( "SELECT COUNT( 1 ) FROM $wpdb->posts WHERE post_type = 'post' AND post_status = 'publish' AND ID IN (".implode(',', $sticky_posts).")" ) ) : 0;
@@ -349,18 +340,18 @@ if (!class_exists( 'Linen' )) {
 		/*---------------------------------------------------------
 			13. Featured slider usage
 		------------------------------------------------------------ */
-		function use_featured_header() {
+		public function use_featured_header() {
 			return $this->sliderState() && $this->get_sticky_posts_count() >= 1;
 		}
 
-		function use_javascript_slider() {
+		public function use_javascript_slider() {
 			return $this->use_featured_header() && $this->get_sticky_posts_count() >= 2;
 		}
 
 		/*---------------------------------------------------------
 			14. Define theme options
 		------------------------------------------------------------ */
-		function setOptions() {
+		public function setOptions() {
 
 			/*
 				OPTION TYPES:
@@ -587,93 +578,93 @@ if (!class_exists( 'Linen' )) {
 			/*---------------------------------------------------------
 				I. Logo Functions
 			------------------------------------------------------------ */
-			function logoState () {
+			public function logoState () {
 				return get_option($this->shortname.'_logo' );
 			}
-			function logoName () {
+			public function logoName () {
 				return get_option( $this->shortname.'_logo_img' );
 			}
-			function logoAlt () {
+			public function logoAlt () {
 				return get_option($this->shortname.'_logo_img_alt' );
 			}
-			function logoTagline () {
+			public function logoTagline () {
 				return get_option($this->shortname.'_tagline' );
 				}
 
 			/*---------------------------------------------------------
 				II. Slider Functions
 			------------------------------------------------------------ */
-			function sliderState () {
+			public function sliderState () {
 				return get_option($this->shortname.'_slider' );
 			}
-			function sliderStart () {
+			public function sliderStart () {
 				return get_option($this->shortname.'_slider_start' );
 			}
-			function sliderDelay () {
+			public function sliderDelay () {
 				return get_option($this->shortname.'_slider_delay' );
 			}
-			function sliderSpeed () {
+			public function sliderSpeed () {
 				return get_option($this->shortname.'_slider_speed' );
 			}
-			function sliderIncludeStickies () {
+			public function sliderIncludeStickies () {
 				return get_option($this->shortname.'_slider_include_stickies' );
 			}
 
 			/*---------------------------------------------------------
 				III. Subscribe Functions
 			------------------------------------------------------------ */
-			function twitter() {
+			public function twitter() {
 				return stripslashes( wp_filter_post_kses(get_option($this->shortname.'_twitter' )) );
 			}
-			function twitterToggle() {
+			public function twitterToggle() {
 				return get_option($this->shortname.'_twitter_toggle' );
 			}
-			function facebook() {
+			public function facebook() {
 				return stripslashes( wp_filter_post_kses(get_option($this->shortname.'_facebook' )) );
 			}
-			function facebookToggle() {
+			public function facebookToggle() {
 				return get_option($this->shortname.'_facebook_toggle' );
 			}
-			function flickr() {
+			public function flickr() {
 				return wp_filter_post_kses(get_option($this->shortname.'_flickr' ));
 			}
-			function flickrToggle() {
+			public function flickrToggle() {
 				return get_option($this->shortname.'_flickr_toggle' );
 			}
-			function googlePlus() {
+			public function googlePlus() {
 				return get_option( $this->shortname."_google_plus" );
 			}
-			function googlePlusToggle() {
+			public function googlePlusToggle() {
 				return get_option( $this->shortname."_google_plus_toggle" );
 			}
-			function followDisable() {
+			public function followDisable() {
 				return get_option($this->shortname.'_follow_disable' );
 			}
 
 			/*---------------------------------------------------------
 				IV. Font Functions
 			------------------------------------------------------------ */
-			function accentFont () {
+			public function accentFont () {
 				return get_option($this->shortname.'_accent_font', 'Arvo' );
 			}
-			function bodyFont () {
+			public function bodyFont () {
 				return get_option($this->shortname.'_body_font', 'disable' );
 			}
 
 			/*---------------------------------------------------------
 				V. Layout
 			------------------------------------------------------------ */
-			function sidebarDisable() {
+			public function sidebarDisable() {
 				return get_option($this->shortname.'_sidebar_disable' );
 			}
-			function footerDisable() {
+			public function footerDisable() {
 				return get_option($this->shortname.'_footer_disable' );
 			}
 
 			/*---------------------------------------------------------
 				VI. Footer Functions
 			------------------------------------------------------------ */
-			function copyrightName() {
+			public function copyrightName() {
 				return stripslashes( wp_filter_post_kses(get_option($this->shortname.'_copyright_name' )) );
 			}
 

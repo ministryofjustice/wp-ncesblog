@@ -3,14 +3,13 @@
 if ( ! class_exists('TTFCore') ) {
 	class TTFCore {
 
-		var $domain;
-		var $themename = "TTF";
-		var $themeurl = "http://thethemefoundry.com/";
-		var $shortname = "ttf_themes";
-		var $options = array();
+		public $domain;
+		public $themename = "TTF";
+		public $themeurl = "http://thethemefoundry.com/";
+		public $shortname = "ttf_themes";
+		public $options = array();
 
-		/* PHP4 Compatible Constructor */
-		function TTFCore () {
+		public function __construct() {
 			add_action( 'admin_init', array(&$this, 'printAdminScripts' ) );
 			add_action( 'admin_menu', array(&$this, 'addAdminPage' ) );
 			add_action( 'widgets_init', array(&$this, 'registerSidebars' ) );
@@ -21,7 +20,7 @@ if ( ! class_exists('TTFCore') ) {
 			$this->setupTheme();
 		}
 
-		function setupTheme() {
+		public function setupTheme() {
 			$this->addFeedSupport();
 			$this->addImageSize();
 			$this->addThumbnailSupport();
@@ -29,18 +28,18 @@ if ( ! class_exists('TTFCore') ) {
 			do_action( 'setup_theme_' . $this->domain );
 		}
 
-		function addFeedSupport() {
+		public function addFeedSupport() {
 			add_theme_support( 'automatic-feed-links');
 		}
 
-		function addImageSize() {}
+		public function addImageSize() {}
 
-		function addThumbnailSupport() {
+		public function addThumbnailSupport() {
 			add_theme_support( 'post-thumbnails' );
 		}
 
 		/* Add Custom CSS & JS */
-		function printAdminScripts () {
+		public function printAdminScripts () {
 			if ( current_user_can( 'edit_theme_options' ) && isset( $_GET['page'] ) && $_GET['page'] == basename(__FILE__) ) {
 				wp_enqueue_script( 'media-upload' );
 				add_thickbox();
@@ -51,13 +50,14 @@ if ( ! class_exists('TTFCore') ) {
 			}
 		}
 
-		function registerSidebars() {}
+		public function registerSidebars() {}
 
-		function adminBarRender() {
+		public function adminBarRender() {
 			global $wp_admin_bar;
 
 			if ( ! empty( $wp_admin_bar ) ) {
 				$wp_admin_bar->add_menu( array(
+					'id' => 'theme-options',
 					'parent' => 'appearance',
 					'title' => __( 'Theme Options' ),
 					'href' => admin_url('themes.php?page=ttf-admin.php'),
@@ -66,7 +66,7 @@ if ( ! class_exists('TTFCore') ) {
 		}
 
 		/* Process Input and Add Options Page*/
-		function addAdminPage() {
+		public function addAdminPage() {
 			// global $themename, $shortname, $options;
 			if ( current_user_can( 'edit_theme_options' ) && isset( $_GET['page'] ) && $_GET['page'] == basename(__FILE__) ) {
 				if ( ! empty( $_REQUEST['save-theme-options-nonce'] ) && wp_verify_nonce( $_REQUEST['save-theme-options-nonce'], 'save-theme-options' ) && isset( $_REQUEST['action'] ) && $_REQUEST['action'] == 'save' ) {
@@ -127,7 +127,7 @@ if ( ! class_exists('TTFCore') ) {
 		}
 
 		/* Output of the Admin Page */
-		function adminPage () {
+		public function adminPage () {
 			// global $themename, $shortname, $options;
 			$up_dir = wp_upload_dir();
 			if ( ! empty( $_REQUEST['saved'] ) ) {

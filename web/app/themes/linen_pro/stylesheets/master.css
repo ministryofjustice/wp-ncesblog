@@ -46,7 +46,7 @@ img { -ms-interpolation-mode: bicubic; }
 /*---------------------------------------------------------
 	2. Body and links
 ------------------------------------------------------------ */
-body {font-size: 62.5%;	font-family: Georgia, Times, serif;	color: #333;	background-color: #d0d0d0;}
+body {font-size: 62.5%;	font-family: Georgia, Times, serif;	color: #333;	background-color: #fff;}
 a:link, a:visited {color: #1f2d61;	text-decoration: none;}
 a:hover {color: #434c6d;}
 
