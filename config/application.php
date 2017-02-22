@@ -72,8 +72,9 @@ define('NONCE_SALT', env('NONCE_SALT'));
  * Custom Settings
  */
 define('AUTOMATIC_UPDATER_DISABLED', true);
-define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
+define('DISABLE_WP_CRON', true);
 define('DISALLOW_FILE_EDIT', true);
+define('WP_DEFAULT_THEME', 'linen_pro');
 
 /**
  * Bootstrap WordPress
