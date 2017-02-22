@@ -163,7 +163,7 @@ if (!class_exists( 'Linen' )) {
 				if ( ( 'disable' != $this->accentFont() ) ) {
 					wp_enqueue_style(
 						'linen-accent-font-style',
-						'http://fonts.googleapis.com/css?family=' . $this->accentFont(),
+						'https://fonts.googleapis.com/css?family=' . $this->accentFont(),
 						array( 'linen-style' ),
 						null
 					);
@@ -172,7 +172,7 @@ if (!class_exists( 'Linen' )) {
 				if ( ( 'disable' != $this->bodyFont() ) && ( $this->bodyFont() != $this->accentFont() ) ) {
 					wp_enqueue_style(
 						'linen-body-font-style',
-						'http://fonts.googleapis.com/css?family=' . $this->bodyFont(),
+						'https://fonts.googleapis.com/css?family=' . $this->bodyFont(),
 						array( 'linen-style' ),
 						null
 					);
