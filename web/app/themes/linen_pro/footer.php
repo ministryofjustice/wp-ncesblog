@@ -52,6 +52,5 @@
 		</p>
 	</div><!--end copyright-->
 <?php wp_footer(); ?>
-<script type="text/javascript" src="/wp-content/themes/linen_pro/javascripts/analytics.js"></script>
 </body>
 </html>

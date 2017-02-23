@@ -28,9 +28,9 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<?php wp_head(); ?>
 
-    <link rel="stylesheet" type="text/css" href="<?php echo home_url(); ?>/wp-content/themes/linen_pro/stylesheets/one.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo home_url(); ?>/wp-content/themes/linen_pro/stylesheets/two.css">
-	<link href='http://fonts.googleapis.com/css?family=Cabin:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/stylesheets/one.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/stylesheets/two.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Cabin:400,700">
 
 </head>
 <body <?php body_class(); ?>>

@@ -155,9 +155,9 @@ function save_comment_meta_data( $comment_id ) {
 }
 
 
-add_filter( 'get_comment_author_link',  'attach_city_to_author' );
-function attach_city_to_author( $author ) {
-  $city = get_comment_meta( get_comment_ID(), 'job', true );
+add_filter( 'get_comment_author_link',  'attach_city_to_author', 10, 3 );
+function attach_city_to_author( $return, $author, $comment_id ) {
+  $city = get_comment_meta( $comment_id, 'job', true );
   if ( $city )
     $author .= " ($city)";
   return $author;
@@ -178,5 +178,3 @@ add_action('pre_comment_on_post', 'custom_validate_comment');
    return '… <a href="'. get_permalink($post->ID) . '">' . 'Read and discuss this post &raquo;' . '</a>';
    }
    add_filter('excerpt_more', 'new_excerpt_more');
-
-
