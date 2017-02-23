@@ -178,5 +178,3 @@ add_action('pre_comment_on_post', 'custom_validate_comment');
    return '… <a href="'. get_permalink($post->ID) . '">' . 'Read and discuss this post &raquo;' . '</a>';
    }
    add_filter('excerpt_more', 'new_excerpt_more');
-
-
