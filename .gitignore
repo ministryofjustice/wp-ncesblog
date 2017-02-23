@@ -6,6 +6,7 @@ web/app/upgrade
 web/app/languages
 web/app/uploads/*
 !web/app/uploads/.gitkeep
+cloudformation-stacks
 
 # WordPress
 web/wp

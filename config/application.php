@@ -75,6 +75,7 @@ define('AUTOMATIC_UPDATER_DISABLED', true);
 define('DISABLE_WP_CRON', true);
 define('DISALLOW_FILE_EDIT', true);
 define('WP_DEFAULT_THEME', 'linen_pro');
+define('S3_UPLOADS_BASE_URL', env('S3_UPLOADS_BASE_URL'));
 
 /**
  * Bootstrap WordPress
