@@ -26,3 +26,6 @@ fi
 
 # Install PHP dependencies (WordPress, plugins, etc.)
 composer install
+
+# Remove composer auth
+rm -Rf auth.json
