@@ -55,11 +55,13 @@
         "oscarotero/env": "^1.0",
         "roots/wp-password-bcrypt": "*",
         "wpackagist-plugin/classic-editor": "*",
-        "wpackagist-plugin/google-analytics-dashboard-for-wp": "*",
+        "wpackagist-plugin/wp-analytify":"*",
+        "wpackagist-plugin/analytify-analytics-dashboard-widget":"*",
         "wpackagist-plugin/fast-user-switching": "*",
         "ministryofjustice/wp-rewrite-media-to-s3": "^0.1.0",
         "ministryofjustice/wp-user-roles": "*",
-        "ministryofjustice/wp-moj-components": "*"
+        "ministryofjustice/wp-moj-components": "*",
+        "ministryofjustice/cookie-compliance-for-wordpress": "*"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.5.1"
